@@ -789,11 +789,12 @@ sub build_targets
 		# vacuum container
 		my $Rout         = 44;
 		my $ZhalfLength  = 130;  # half length along beam axis
+#		my $ZhalfLength  = 110.4;  # half length along beam axis
 		my %detector = init_det();
 		$detector{"name"}        = "PolTarg";
 		$detector{"mother"}      = "root";
 		$detector{"description"} = "PolTarg Region";
-		$detector{"color"}       = "aaaaaa9";
+		$detector{"color"}       = "aaaaa9";
 		$detector{"type"}        = "Tube";
 		$detector{"dimensions"}  = "0*mm $Rout*mm $ZhalfLength*mm 0*deg 360*deg";
 		$detector{"material"}    = "G4_Galactic";
@@ -1364,10 +1365,11 @@ sub build_targets
 		$detector{"name"}        = "PolTarg";
 		$detector{"mother"}      = "root";
 		$detector{"description"} = "PolTarg Region";
-		$detector{"color"}       = "aaaaaa9";
+		$detector{"color"}       = "ffffff";
 		$detector{"type"}        = "Tube";
 		$detector{"dimensions"}  = "0*mm $Rout*mm $ZhalfLength*mm 0*deg 360*deg";
 		$detector{"material"}    = "G4_Galactic";
+		$detector{"visible"}     = 0;
 		$detector{"style"}       = "1";
 		print_det(\%configuration, \%detector);
 		
