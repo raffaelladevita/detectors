@@ -4,14 +4,14 @@ use warnings;
 our %configuration;
 
 my $shieldStart = 787.41; # start of vacuum pipe is 1mm downstream of target vac extension
-my $pipeFirstStep = 2413 - 76.5;
+my $pipeFirstStep = 2413;
 my $torusStart    = 2754.17 ;
 my $mediumPipeEnd = 5016; # added by hand by shooting geantino vertically to locate the point
 my $bigPipeBegins = 5064; # added by hand by shooting geantino vertically to locate the point
 my $pipeEnds      = 5732;
 my $alcovePipeStarts = 5741;
 my $alcovePipeEnds   = 9400;
-my $mediumStarts  = $pipeFirstStep + 153; # added by hand by shooting geantino vertically to locate the point
+my $mediumStarts  = $pipeFirstStep + 76.5; # added by hand by shooting geantino vertically to locate the point
 
 # apex cad model not filled with lead.
 my $apexIR = 140;
@@ -88,12 +88,11 @@ sub ELMOline()
 	$detector{"color"}       = "aaffff";
 	$detector{"type"}        = "Tube";
 	$detector{"pos"}         = "0*mm 0*mm $zpos*mm";
-	$detector{"dimensions"}  = "$connectingIR*mm $firstVacuumOR*mm $pipeLength*mm 0*deg 360*deg";
+	$detector{"dimensions"}  = "$firstVacuumIR*mm $firstVacuumOR*mm $pipeLength*mm 0*deg 360*deg";
 	$detector{"material"}    = "G4_STAINLESS-STEEL";
 	$detector{"style"}       = 1;
 	print_det(\%configuration, \%detector);
 
-	my $secondVacuumIR = 26.924;	
 	%detector = init_det();
 	$detector{"name"}        = "vacuumInPipe3";
 	$detector{"mother"}      = "root";
@@ -101,7 +100,7 @@ sub ELMOline()
 	$detector{"color"}       = "000000";
 	$detector{"type"}        = "Tube";
 	$detector{"pos"}         = "0*mm 0*mm $zpos*mm";
-	$detector{"dimensions"}  = "0*mm $secondVacuumIR*mm $pipeLength*mm 0*deg 360*deg";
+	$detector{"dimensions"}  = "0*mm $firstVacuumIR*mm $pipeLength*mm 0*deg 360*deg";
 	$detector{"material"}    = "G4_Galactic";
 	$detector{"style"}       = 1;
 	print_det(\%configuration, \%detector);
