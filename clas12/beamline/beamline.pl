@@ -44,8 +44,9 @@ require "./materials.pl";
 # vacuum line throughout the shields, torus and downstream
 require "./vacuumLineNew.pl";
 require "./ELMOline.pl";
+require "./ELMOlinemod1.pl";
 
-my @allConfs = ("FTOn", "FTOff","ELMO");
+my @allConfs = ("FTOn", "FTOff","ELMO","ELMOmod1");
 
 foreach my $conf ( @allConfs )
 {
@@ -62,6 +63,9 @@ foreach my $conf ( @allConfs )
 	}
 	if( $configuration{"variation"} eq "ELMO") {
 	    ELMOline();
+	}
+	if( $configuration{"variation"} eq "ELMOmod1") {
+	    ELMOlinemod1();
 	}
 }
 
