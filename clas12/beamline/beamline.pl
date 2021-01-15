@@ -45,8 +45,11 @@ require "./materials.pl";
 require "./vacuumLineNew.pl";
 require "./ELMOline.pl";
 require "./ELMOlinemod1.pl";
+require "./ELMOlinemod2.pl";
+require "./ELMOlinemod3.pl";
+require "./fluxes.pl";
 
-my @allConfs = ("FTOn", "FTOff","ELMO","ELMOmod1");
+my @allConfs = ("FTOn", "FTOff","ELMO","ELMOmod1","ELMOmod2","ELMOmod3","fluxes");
 
 foreach my $conf ( @allConfs )
 {
@@ -66,6 +69,15 @@ foreach my $conf ( @allConfs )
 	}
 	if( $configuration{"variation"} eq "ELMOmod1") {
 	    ELMOlinemod1();
+	}
+	if( $configuration{"variation"} eq "ELMOmod2") {
+	    ELMOlinemod2();
+	}
+	if( $configuration{"variation"} eq "ELMOmod3") {
+	    ELMOlinemod3();
+	}
+	if( $configuration{"variation"} eq "fluxes") {
+	    fluxes();
 	}
 }
 
