@@ -213,15 +213,6 @@ sub materials
 	$mat{"components"}    = "NH3 $NH3_mass_fraction lHeCoolant $lHe_mass_fraction";
 	print_mat(\%configuration, \%mat);
 
-	# NH3 target with lHe3 coolant HALF DENSITIES TO MIMIC HALF TARGET
-	#my %mat = init_mat();
-	$mat{"name"}          = "NH3targetHalf";
-	$mat{"description"}   = "solid NH3 target";
-	$mat{"density"}       =  $NH3trg_density/2;
-	$mat{"ncomponents"}   = "2";
-	$mat{"components"}    = "NH3 $NH3_mass_fraction lHeCoolant $lHe_mass_fraction";
-	print_mat(\%configuration, \%mat);
-
 	# ND3 , not sure if G4 has H2 material so used H for now
 	#my %mat = init_mat();
 	my $ND3_density = 1.007; 
@@ -351,6 +342,15 @@ sub materials
 	$mat{"name"}          = "NH3target";
 	$mat{"description"}   = "solid NH3 target";
 	$mat{"density"}        =  $NH3trg_density;
+	$mat{"ncomponents"}   = "2";
+	$mat{"components"}    = "NH3 $NH3_mass_fraction lHeCoolant $lHe_mass_fraction";
+	print_mat(\%configuration, \%mat);
+
+	# NH3 target with lHe3 coolant HALF DENSITIES TO MIMIC HALF TARGET
+	#my %mat = init_mat();
+	$mat{"name"}          = "NH3targetHalf";
+	$mat{"description"}   = "solid NH3 target";
+	$mat{"density"}       =  $NH3trg_density/2;
 	$mat{"ncomponents"}   = "2";
 	$mat{"components"}    = "NH3 $NH3_mass_fraction lHeCoolant $lHe_mass_fraction";
 	print_mat(\%configuration, \%mat);
