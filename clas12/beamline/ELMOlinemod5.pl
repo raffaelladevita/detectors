@@ -19,7 +19,7 @@ my $apexOR = 190;
 my $apexLength = 1000;
 my $apexPos = 5372;
 
-sub ELMOlinemod3()
+sub ELMOlinemod5()
 {
 
 	# in "root" the first part of the pipe is straight
@@ -188,7 +188,7 @@ sub ELMOlinemod3()
         # shield is a tapered pipe (G4 polycone)
         my $nplanes_tcone = 4;
 	my @zplane_tcone  =  (716.42, 1226.50, 1226.50, 1353.60);
-        my @iradius_tcone  = ( 50.00,   50.00,   59.52,   59.52);
+        my @iradius_tcone  = ( 38.10,   38.10,  47.62,  47.62 );
 	my $or1_tcone = 54.02;
 	my $or2_tcone = 109.76;
 	my $orm_tcone = $or1_tcone + ($or2_tcone - $or1_tcone) * ($zplane_tcone[1] - $zplane_tcone[0])
@@ -226,7 +226,7 @@ sub ELMOlinemod3()
         $detector{"dimensions"}  = $dimen;
         $detector{"material"}    = "G4_W";
         $detector{"style"}       = 1;
-#        print_det(\%configuration, \%detector);
+        print_det(\%configuration, \%detector);
 
 	my $zlength = 444.15;
 	$zpos = $zplane_tcone[3] + $zlength;
@@ -238,7 +238,7 @@ sub ELMOlinemod3()
 	$detector{"type"}        = "Cons";
 	$detector{"pos"}         = "0*mm 0*mm $zpos*mm";
 	$detector{"dimensions"}  = "$iradius_tcone[3]*mm $oradius_tcone[3]*mm $iradius_tcone[3]*mm $oradius_tcone[3]*mm $zlength*mm 0.0*deg 360*deg";
-	$detector{"material"}    = "G4_Pb";
+	$detector{"material"}    = "G4_W";
 	$detector{"style"}       = 1;
 	print_det(\%configuration, \%detector);
 
@@ -264,9 +264,9 @@ sub ELMOlinemod3()
 	print_det(\%configuration, \%detector);
 
         my $nplanes_apipe = 4;
-	my @zplane_apipe  =  (100, 385, 385, $zplane_tcone[0]);
+	my @zplane_apipe  =  (100, 385, 385, $zplane_ttip[0]);
         my @iradius_apipe  = (  0,   0,   0, 0);
-	my @oradius_apipe  = ( 30,  30,  25.46, $oradius_tcone[0]);
+	my @oradius_apipe  = ( 30,  30,  25.46, $oradius_ttip[0]);
 	%detector = init_det();
 	$detector{"name"}        = "ElmoAirPipe";
 	$detector{"mother"}      = "root";
