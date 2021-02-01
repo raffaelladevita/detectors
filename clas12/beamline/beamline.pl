@@ -85,6 +85,9 @@ foreach my $conf ( @allConfs )
 	if( $configuration{"variation"} eq "ELMOmod5") {
 	    ELMOlinemod5();
 	}
+	if( $configuration{"variation"} eq "ELMOmod6") {
+	    ELMOlinemod6();
+	}
 	if( $configuration{"variation"} eq "fluxes") {
 	    fluxes();
 	}
