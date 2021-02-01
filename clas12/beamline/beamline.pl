@@ -49,9 +49,10 @@ require "./ELMOlinemod2.pl";
 require "./ELMOlinemod3.pl";
 require "./ELMOlinemod4.pl";
 require "./ELMOlinemod5.pl";
+require "./ELMOlinemod6.pl";
 require "./fluxes.pl";
 
-my @allConfs = ("FTOn", "FTOff","ELMO","ELMOmod1","ELMOmod2","ELMOmod3","ELMOmod4","ELMOmod5","fluxes");
+my @allConfs = ("FTOn", "FTOff","ELMO","ELMOmod1","ELMOmod2","ELMOmod3","ELMOmod4","ELMOmod5","ELMOmod6","fluxes");
 
 foreach my $conf ( @allConfs )
 {
