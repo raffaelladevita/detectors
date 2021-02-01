@@ -241,7 +241,7 @@ sub materials
 
 	}	
 
-	if($thisVariation eq "APOLLOnh3")
+	if($thisVariation eq "APOLLOnh3" or $thisVariation eq "APOLLOnh3New")
 	{
 
 	# carbon fiber
