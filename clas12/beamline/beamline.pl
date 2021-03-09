@@ -50,9 +50,11 @@ require "./ELMOlinemod3.pl";
 require "./ELMOlinemod4.pl";
 require "./ELMOlinemod5.pl";
 require "./ELMOlinemod6.pl";
+require "./ELMOlinemod7.pl";
+require "./ELMOlinemod8.pl";
 require "./fluxes.pl";
 
-my @allConfs = ("FTOn", "FTOff","ELMO","ELMOmod1","ELMOmod2","ELMOmod3","ELMOmod4","ELMOmod5","ELMOmod6","fluxes");
+my @allConfs = ("FTOn", "FTOff","ELMO","ELMOmod1","ELMOmod2","ELMOmod3","ELMOmod4","ELMOmod5","ELMOmod6","ELMOmod7","ELMOmod8","fluxes");
 
 foreach my $conf ( @allConfs )
 {
@@ -87,6 +89,12 @@ foreach my $conf ( @allConfs )
 	}
 	if( $configuration{"variation"} eq "ELMOmod6") {
 	    ELMOlinemod6();
+	}
+	if( $configuration{"variation"} eq "ELMOmod7") {
+	    ELMOlinemod7();
+	}
+	if( $configuration{"variation"} eq "ELMOmod8") {
+	    ELMOlinemod8();
 	}
 	if( $configuration{"variation"} eq "fluxes") {
 	    fluxes();
