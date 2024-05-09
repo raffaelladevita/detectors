@@ -102,6 +102,9 @@ foreach my $conf ( @allConfs )
 		our @volumes = get_volumes(%configuration);
 
 		coatjava::makeDC();
+	     # region 3 shielding
+		make_region3_front_shield();
+		make_region3_back_shield();
 	}
 }
 

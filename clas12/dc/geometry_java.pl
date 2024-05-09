@@ -12,6 +12,14 @@ my $types;
 my $dimensions;
 my $ids;
 
+our @mother_dx1= (0,0,0);
+our @mother_dx2= (0,0,0);
+our @mother_dy= (0,0,0);
+our @mother_dz= (0,0,0);
+our @mother_xcent= (0,0,0);
+our @mother_ycent= (0,0,0);
+our @mother_zcent= (0,0,0);
+
 sub make_region
 {
 	my $iregion = shift;
@@ -32,6 +40,24 @@ sub make_region
 		$detector{"type"}           = $types->{$vname};
 		$detector{"dimensions"}  = $dimensions->{$vname};
 
+                        my $sizes = $detector{"dimensions"};
+                        $sizes =~ s/\*cm//g;
+
+                        my @numbers = split(/[ \t]+/,$sizes);
+                        (my $dz, my $tilt, my $phi, my $dy, my $dx1, my $dx2, my $angle1, my $dy1, my $dx11, my $dx21, my $angle2) = @numbers;
+                        my $ireg = $iregion-1; ;  # index is c++ convention
+                        $mother_dx1[$ireg]     = $dx1 + 1.0;   # Custom enlarging mother volume to contain daugthers
+                        $mother_dx2[$ireg]     = $dx2 + 1.0;
+                        $mother_dy[$ireg]      = $dy  + 1.0;
+                        $mother_dz[$ireg]      = $dz;
+
+                        $sizes = $detector{"pos"};
+                        $sizes =~ s/\*cm//g;
+                        my @poses = split(/[ \t]+/,$sizes);
+                        (my $xcent, my $ycent, my $zcent) = @poses;
+                        $mother_xcent[$ireg]   = $xcent;
+                        $mother_ycent[$ireg]   = $ycent;
+                        $mother_zcent[$ireg]   = $zcent;
 		$detector{"color"}       = "aa0000";
 		$detector{"material"}    = "dcgas";
 		$detector{"visible"}     = 0;
