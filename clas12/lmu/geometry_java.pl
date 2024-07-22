@@ -11,6 +11,7 @@ my $types;
 my $dimensions;
 my $ids;
 my %color = ('kapton' => "bf0000", "Al" => "2a3158", "gas" => " afb0ba", "Cu" => "fd7f00", "dlc" => "14b6ce", "Cr" => "1433ce", "glue" => "14ce3d", "g10" => "aa44d8", "nomex" => "ecdb3a");
+my %colorGem = ('kapton' => "bf0000", "Al" => "2a3158", "gas" => " afb0ba", "Cu" => "fd7f00", "dlc" => "14b6ce", "Cr" => "1433ce", "glue" => "14ce3d", "g10" => "888808", "nomex" => "dddd3a");
 
 my @window = ("kapton", "Al", "gas");
 my @cathode = ("kapton", "Al", "gas");
@@ -150,9 +151,14 @@ sub make_layers{
         $detector{"rotation"} = $rotations->{$vname};
         $detector{"type"} = $types->{$vname};
         $detector{"dimensions"}  = $dimensions->{$vname};
-        $detector{"color"}       = $color{$material};
+        if($region eq 1 || $region eq 6) {
+            $detector{"color"}       = $colorGem{$material};
+        }
+        else {
+            $detector{"color"}       = $color{$material};
+        }        
         $detector{"material"}    = $material;
-
+       
         if($layer eq "cathode" && $material eq "gas" ){
             $detector{"sensitivity"} = "flux";
             $detector{"hit_type"} = "flux";
